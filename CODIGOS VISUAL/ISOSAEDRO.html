@@ -1,0 +1,41 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Icosaedro</title>
+    <script>
+        function calcular() {
+            const a = parseFloat(document.getElementById('arista').value);
+            
+            if (isNaN(a)) {
+                alert("Por favor, introduce un valor numérico válido.");
+                return;
+            }
+
+            const sqrt5 = Math.sqrt(5);
+            const sqrt3 = Math.sqrt(3);
+
+            // Cálculo del área de la superficie del icosaedro
+            const areaSuperficie = 5 * sqrt3 * a ** 2;
+            document.getElementById('areaSuperficieResultado').textContent = "El área de la superficie es: " + areaSuperficie.toFixed(4);
+
+            // Cálculo del perímetro de una cara del icosaedro
+            const perimetroCara = 5 * a;
+            document.getElementById('perimetroCaraResultado').textContent = "El perímetro de una cara es: " + perimetroCara.toFixed(4);
+
+            // Cálculo del volumen del icosaedro
+            const volumen = (5 / 12) * (3 + sqrt5) * a ** 3;
+            document.getElementById('volumenResultado').textContent = "El volumen es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Icosaedro</h1>
+    <label for="arista">Escribe la longitud de la arista:</label>
+    <input type="number" id="arista" name="arista" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaSuperficieResultado"></p>
+    <p id="perimetroCaraResultado"></p>
+    <p id="volumenResultado"></p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cubo</title>
+    <script>
+        function calcular() {
+            const ld = parseFloat(document.getElementById('lado').value);
+            const s = parseFloat(document.getElementById('arista').value);
+            
+            if (isNaN(ld) || isNaN(s)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            // Cálculo del área del cubo
+            const area = 6 * (ld ** 2);
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + area.toFixed(4);
+
+            // Cálculo del perímetro del cubo
+            const perimetro = 12 * s;
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+
+            // Cálculo del volumen del cubo
+            const volumen = ld ** 3;
+            document.getElementById('volumenResultado').textContent = "El resultado del volumen es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Cubo</h1>
+    <label for="lado">Escribir el lado de la longitud de uno de los lados del cubo:</label>
+    <input type="number" id="lado" name="lado" step="0.01"><br>
+    <label for="arista">Escribir el lado de la arista de la longitud de uno de los lados del cubo:</label>
+    <input type="number" id="arista" name="arista" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+    <p id="volumenResultado"></p>
+</body>
+</html>

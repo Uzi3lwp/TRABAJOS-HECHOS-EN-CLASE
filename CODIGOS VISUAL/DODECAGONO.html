@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área, Perímetro y Volumen</title>
+    <script>
+        function calcular() {
+            const s = parseFloat(document.getElementById('lado').value);
+            const a = parseFloat(document.getElementById('arista').value);
+            
+            if (isNaN(s) || isNaN(a)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            // Cálculo del área
+            const area = (3 * s ** 2) * (2.24698 * (3.1416 / 12));
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + area.toFixed(4);
+
+            // Cálculo del perímetro
+            const perimetro = 12 * s;
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+
+            // Cálculo del volumen
+            const volumen = ((15 + 7 * Math.sqrt(5)) * a ** 3) / 4;
+            document.getElementById('volumenResultado').textContent = "El resultado del volumen es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Área, Perímetro y Volumen</h1>
+    <label for="lado">Pon la longitud de uno de los lados:</label>
+    <input type="number" id="lado" name="lado" step="0.01"><br>
+    <label for="arista">Pon la longitud de una arista:</label>
+    <input type="number" id="arista" name="arista" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+    <p id="volumenResultado"></p>
+</body>
+</html>

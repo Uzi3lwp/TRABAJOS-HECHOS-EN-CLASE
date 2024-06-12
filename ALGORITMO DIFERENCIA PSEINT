@@ -1,0 +1,16 @@
+# Definir las variables
+numero1 = 0.0
+numero2 = 0.0
+operacion = 0.0
+
+# Solicitar al usuario el primer número
+numero1 = float(input('enter a number : '))
+
+# Solicitar al usuario el segundo número
+numero2 = float(input('enter a second number: '))
+
+# Realizar la operación (resta)
+operacion = numero1 - numero2
+
+# Mostrar el resultado
+print('the difference of the numbers is:', operacion)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Rectángulo</title>
+    <script>
+        function calcular() {
+            const ld1 = parseFloat(document.getElementById('lado1').value);
+            const ld2 = parseFloat(document.getElementById('lado2').value);
+            const s = parseFloat(document.getElementById('longitud').value);
+            
+            if (isNaN(ld1) || isNaN(ld2) || isNaN(s)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            // Cálculo del área del rectángulo
+            const area = ld1 * ld2;
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + area.toFixed(4);
+
+            // Cálculo del perímetro del cuadrado (asumiendo que 'longitud' se refiere a un lado del cuadrado)
+            const perimetro = 4 * s;
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Rectángulo</h1>
+    <label for="lado1">Ingresa el primer lado:</label>
+    <input type="number" id="lado1" name="lado1" step="0.01"><br>
+    <label for="lado2">Ingresa el segundo lado:</label>
+    <input type="number" id="lado2" name="lado2" step="0.01"><br>
+    <label for="longitud">Ingresa la longitud:</label>
+    <input type="number" id="longitud" name="longitud" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+</body>
+</html>

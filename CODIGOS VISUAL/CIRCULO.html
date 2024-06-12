@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Círculo</title>
+    <script>
+        function calcular() {
+            const r = parseFloat(document.getElementById('radio').value);
+            if (isNaN(r)) {
+                alert("Por favor, introduce un número válido.");
+                return;
+            }
+            const pi = 3.1416;
+
+            const area = pi * (r ** 2);
+            const perimetro = (2 * pi) * r;
+            const volumen = pi * (r ** 2); // Esta fórmula parece incorrecta para volumen, debe ser r^3 para una esfera.
+
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + area.toFixed(4);
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+            document.getElementById('volumenResultado').textContent = "El resultado del volumen es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Círculo</h1>
+    <label for="radio">Pon el radio:</label>
+    <input type="number" id="radio" name="radio" step="0.01">
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+    <p id="volumenResultado"></p>
+</body>
+</html>

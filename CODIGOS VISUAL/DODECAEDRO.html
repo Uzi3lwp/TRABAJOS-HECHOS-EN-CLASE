@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pentágono y Dodecaedro</title>
+    <script>
+        function calcular() {
+            const s = parseFloat(document.getElementById('lado').value);
+            const a = parseFloat(document.getElementById('arista').value);
+            
+            if (isNaN(s) || isNaN(a)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            const sqrt5 = Math.sqrt(5);
+
+            // Cálculo de un área pentagonal (asumiendo que es una cara del dodecaedro)
+            const pentagonArea = (1 / 4) * (sqrt5 * (5 + 2 * sqrt5 * (s ** 2)));
+            const totalArea = 12 * pentagonArea;
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + totalArea.toFixed(4);
+
+            // Cálculo del perímetro del dodecaedro (asumiendo que son 30 aristas)
+            const perimetro = 30 * s;
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+
+            // Cálculo del volumen del dodecaedro
+            const volumen = ((15 + 7 * sqrt5) * (a ** 3)) / 4;
+            document.getElementById('volumenResultado').textContent = "El resultado del volumen es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Pentágono y Dodecaedro</h1>
+    <label for="lado">Escribe la longitud de un lado del pentágono:</label>
+    <input type="number" id="lado" name="lado" step="0

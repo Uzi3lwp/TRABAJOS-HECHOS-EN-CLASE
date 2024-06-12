@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tetraedro</title>
+    <script>
+        function calcular() {
+            const s = parseFloat(document.getElementById('lado').value);
+            const a = parseFloat(document.getElementById('arista').value);
+            
+            if (isNaN(s) || isNaN(a)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            // Cálculo del área de la base del tetraedro (triángulo equilátero)
+            const areaBase = Math.sqrt(3) / 4 * s ** 2;
+            const areaTotal = 4 * areaBase;
+            document.getElementById('areaResultado').textContent = "El área del tetraedro es: " + areaTotal.toFixed(4);
+
+            // Cálculo del perímetro del tetraedro (perímetro de una cara)
+            const perimetroCara = 3 * a;
+            const perimetroTotal = 4 * perimetroCara;
+            document.getElementById('perimetroResultado').textContent = "El perímetro del tetraedro es: " + perimetroTotal.toFixed(4);
+
+            // Cálculo del volumen del tetraedro
+            const volumen = Math.sqrt(2) / 12 * a ** 3;
+            document.getElementById('volumenResultado').textContent = "El volumen del tetraedro es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Tetraedro</h1>
+    <label for="lado">Escribe la longitud de un lado del triángulo:</label>
+    <input type="number" id="lado" name="lado" step="0.01"><br>
+    <label for="arista">Escribe las aristas de un lado del triángulo:</label>
+    <input type="number" id="arista" name="arista" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+    <p id="volumenResultado"></p>
+</body>
+</html>

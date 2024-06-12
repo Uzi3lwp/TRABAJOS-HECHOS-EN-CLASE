@@ -1,0 +1,39 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pentágono</title>
+    <script>
+        function calcular() {
+            const a = parseFloat(document.getElementById('apotema').value);
+            const P = parseFloat(document.getElementById('perimetro').value);
+            const s = parseFloat(document.getElementById('lado').value);
+            
+            if (isNaN(a) || isNaN(P) || isNaN(s)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            // Cálculo del área del pentágono
+            const area = 0.5 * P * a;
+            document.getElementById('areaResultado').textContent = "El área del pentágono es: " + area.toFixed(4);
+
+            // Cálculo del perímetro del pentágono
+            const perimetro = 5 * s;
+            document.getElementById('perimetroResultado').textContent = "El perímetro del pentágono es: " + perimetro.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Pentágono</h1>
+    <label for="apotema">Ingresa el apotema:</label>
+    <input type="number" id="apotema" name="apotema" step="0.01"><br>
+    <label for="perimetro">Ingresa el perímetro:</label>
+    <input type="number" id="perimetro" name="perimetro" step="0.01"><br>
+    <label for="lado">Ingresa la longitud de cada lado:</label>
+    <input type="number" id="lado" name="lado" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+</body>
+</html>

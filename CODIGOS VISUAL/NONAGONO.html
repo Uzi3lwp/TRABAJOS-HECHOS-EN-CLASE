@@ -1,0 +1,42 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nonágono</title>
+    <script>
+        function calcular() {
+            const s = parseFloat(document.getElementById('lado').value);
+            
+            if (isNaN(s)) {
+                alert("Por favor, introduce un valor numérico válido.");
+                return;
+            }
+
+            const pi = 3.1416;
+            const sqrt3 = Math.sqrt(3);
+            const sqrt5 = Math.sqrt(5);
+
+            // Cálculo del área del nonágono
+            const area = (9 / 4) * s ** 2 * (2.24698 * (pi / 9));
+            document.getElementById('areaResultado').textContent = "El área del nonágono es: " + area.toFixed(4);
+
+            // Cálculo del perímetro del nonágono
+            const perimetro = 9 * s;
+            document.getElementById('perimetroResultado').textContent = "El perímetro del nonágono es: " + perimetro.toFixed(4);
+
+            // Cálculo del volumen del nonágono
+            const volumen = (9 / 4) * s ** 2 * 2.24698 * (pi / 9);
+            document.getElementById('volumenResultado').textContent = "El volumen del nonágono es: " + volumen.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Nonágono</h1>
+    <label for="lado">Pon la longitud de uno de los lados:</label>
+    <input type="number" id="lado" name="lado" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+    <p id="volumenResultado"></p>
+</body>
+</html>

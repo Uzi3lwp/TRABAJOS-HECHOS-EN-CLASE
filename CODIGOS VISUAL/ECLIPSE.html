@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Elipse</title>
+    <script>
+        function calcular() {
+            const a = parseFloat(document.getElementById('semiejeMayor').value);
+            const b = parseFloat(document.getElementById('semiejeMenor').value);
+            
+            if (isNaN(a) || isNaN(b)) {
+                alert("Por favor, introduce valores numéricos válidos.");
+                return;
+            }
+
+            const pi = 3.1416;
+
+            // Cálculo del área de la elipse
+            const area = pi * a * b;
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + area.toFixed(4);
+
+            // Cálculo del perímetro de la elipse (aproximación de Ramanujan)
+            const perimetro = pi * (3 * (a + b) - Math.sqrt((3 * a + b) * (a + 3 * b)));
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Elipse</h1>
+    <label for="semiejeMayor">Pon la longitud del semieje mayor de la elipse:</label>
+    <input type="number" id="semiejeMayor" name="semiejeMayor" step="0.01"><br>
+    <label for="semiejeMenor">Pon la longitud del semjante 

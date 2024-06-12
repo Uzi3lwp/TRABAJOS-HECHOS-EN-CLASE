@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Decágono</title>
+    <script>
+        function calcular() {
+            const s = parseFloat(document.getElementById('lado').value);
+            
+            if (isNaN(s)) {
+                alert("Por favor, introduce un valor numérico válido.");
+                return;
+            }
+
+            // Cálculo del área del decágono
+            const area = (5 / 2) * (s ** 2) * (Math.sqrt(5) + 2) * Math.sqrt(5);
+            document.getElementById('areaResultado').textContent = "El resultado del área es: " + area.toFixed(4);
+
+            // Cálculo del perímetro del decágono
+            const perimetro = 10 * s;
+            document.getElementById('perimetroResultado').textContent = "El resultado del perímetro es: " + perimetro.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Decágono</h1>
+    <label for="lado">Pon la longitud de uno de los lados:</label>
+    <input type="number" id="lado" name="lado" step="0.01"><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="areaResultado"></p>
+    <p id="perimetroResultado"></p>
+</body>
+</html>
