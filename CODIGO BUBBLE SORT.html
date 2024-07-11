@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+<body>
+    <h1>Bubble Sort en JavaScript</h1>
+    <p id="unsorted">Arreglo desordenado: [64, 34, 25, 12, 22, 11, 90]</p>
+    <button onclick="bubbleSort()">Ordenar</button>
+    <p id="sorted">Arreglo ordenado:</p>
+
+    <script>
+        function bubbleSort() {
+            let arr = [64, 34, 25, 12, 22, 11, 90];
+            let n = arr.length;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            document.getElementById('sorted').innerHTML = 'Arreglo ordenado: ' + arr;
+        }
+    </script>
+</body>
+</html>
