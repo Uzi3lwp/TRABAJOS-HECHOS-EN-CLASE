@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo DFS</title>
+    <style>
+        #graph, #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algoritmo DFS</h1>
+    <p>Representación del grafo:</p>
+    <pre id="graph">
+{
+    0: [1, 2],
+    1: [2],
+    2: [0, 3],
+    3: [3]
+}
+    </pre>
+    <button onclick="runDFS()">Ejecutar DFS</button>
+    <p id="output">Resultado de DFS:</p>
+
+    <script>
+        function runDFS() {
+            const graph = {
+                0: [1, 2],
+                1: [2],
+                2: [0, 3],
+                3: [3]
+            };
+            const startNode = 2;
+            const visited = new Set();
+            const result = [];
+
+            function dfs(node) {
+                if (visited.has(node)) {
+                    return;
+                }
+                visited.add(node);
+                result.push(node);
+
+                for (const neighbor of graph[node]) {
+                    dfs(neighbor);
+                }
+            }
+
+            dfs(startNode);
+
+            document.getElementById('output').innerHTML = 'Resultado de DFS: ' + result.join(', ');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort</title>
+</head>
+<body>
+    <h1>Merge Sort en JavaScript</h1>
+    <p id="unsorted">Arreglo desordenado: [64, 34, 25, 12, 22, 11, 90]</p>
+    <button onclick="mergeSort()">Ordenar</button>
+    <p id="sorted">Arreglo ordenado:</p>
+
+    <script>
+        function mergeSort() {
+            let arr = [64, 34, 25, 12, 22, 11, 90];
+            arr = mergeSortRecursive(arr);
+            document.getElementById('sorted').innerHTML = 'Arreglo ordenado: ' + arr;
+        }
+
+        function mergeSortRecursive(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+            
+            const mid = Math.floor(arr.length / 2);
+            const left = mergeSortRecursive(arr.slice(0, mid));
+            const right = mergeSortRecursive(arr.slice(mid));
+            
+            return merge(left, right);
+        }
+
+        function merge(left, right) {
+            let result = [];
+            let leftIndex

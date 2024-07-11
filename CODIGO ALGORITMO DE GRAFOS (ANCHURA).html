@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo BFS en JavaScript</title>
+    <style>
+        #graph, #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algoritmo BFS en JavaScript</h1>
+    <p>Representación del grafo:</p>
+    <pre id="graph">
+{
+    0: [1, 2],
+    1: [2],
+    2: [0, 3],
+    3: [3]
+}
+    </pre>
+    <button onclick="runBFS()">Ejecutar BFS</button>
+    <p id="output">Resultado de BFS:</p>
+
+    <script>
+        function runBFS() {
+            const graph = {
+                0: [1, 2],
+                1: [2],
+                2: [0, 3],
+                3: [3]
+            };
+            const startNode = 2;
+            const visited = new Set();
+            const queue = [startNode];
+            const result = [];
+
+            while (queue.length > 0) {
+                const node = queue.shift();
+
+                if (!visited.has(node)) {
+                    visited.add(node);
+                    result.push(node);
+
+                    for (const neighbor of graph[node]) {
+                        if (!visited.has(neighbor)) {
+                            queue.push(neighbor);
+                        }
+                    }
+                }
+            }
+
+            document.getElementById('output').innerHTML = 'Resultado de BFS: ' + result.join(', ');
+        }
+    </script>
+</body>
+</html>

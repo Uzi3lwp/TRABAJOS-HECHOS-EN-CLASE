@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Dinámica: LCS</title>
+    <style>
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algoritmo de Programación Dinámica: LCS</h1>
+    <p>Introduce dos cadenas:</p>
+    <input type="text" id="string1" value="AGGTAB">
+    <input type="text" id="string2" value="GXTXAYB">
+    <button onclick="findLCS()">Encontrar LCS</button>
+    <p id="output">Resultado de LCS:</p>
+
+    <script>
+        function findLCS() {
+            const str1 = document.getElementById('string1').value;
+            const str2 = document.getElementById('string2').value;
+            const m = str1.length;
+            const n = str2.length;
+
+            const lcs = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+
+            for (let i = 1; i <= m; i++) {
+                for (let j = 1; j <= n; j++) {
+                    if (str1[i - 1] === str2[j - 1]) {
+                        lcs[i][j] = lcs[i - 1][j - 1] + 1;
+                    } else {
+                        lcs[i][j] = Math.max(lcs[i - 1][j], lcs[i][j - 1]);
+                    }
+                }
+            }
+
+            const result = getLCSString(lcs, str1, str2, m, n);
+
+            document.getElementById('output').innerHTML = 'LCS: ' + result;
+        }
+
+        function getLCSString(lcs, str1, str2, m, n) {
+            let index = lcs[m][n];
+            let lcsStr = Array(index + 1).join('');
+
+            let i =

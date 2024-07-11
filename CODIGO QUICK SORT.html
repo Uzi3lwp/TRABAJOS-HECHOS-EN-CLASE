@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Interactivo</title>
+</head>
+<body>
+    <h1>Quick Sort en JavaScript</h1>
+    <p>Introduce los números separados por comas:</p>
+    <input type="text" id="inputArray" value="64,34,25,12,22,11,90">
+    <button onclick="sortArray()">Ordenar</button>
+    <p id="sortedArray">Arreglo ordenado:</p>
+
+    <script>
+        function sortArray() {
+            let input = document.getElementById('inputArray').value;
+            let arr = input.split(',').map(Number);
+            arr = quickSort(arr);
+            document.getElementById('sortedArray').innerHTML = 'Arreglo ordenado: ' + arr;
+        }
+
+        function quickSort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+
+            let pivot = arr[Math.floor(arr.length

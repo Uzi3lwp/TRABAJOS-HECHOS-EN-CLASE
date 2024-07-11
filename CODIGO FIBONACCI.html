@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secuencia de Fibonacci en JavaScript</title>
+</head>
+<body>
+    <h1>Secuencia de Fibonacci</h1>
+    <p>Introduce el número de términos a calcular:</p>
+    <input type="number" id="numTerms" value="10">
+    <button onclick="generateFibonacci()">Generar</button>
+    <p id="output">Secuencia de Fibonacci:</p>
+
+    <script>
+        function generateFibonacci() {
+            const numTerms = parseInt(document.getElementById('numTerms').value);
+            let fibSequence = [];
+
+            let a = 0, b = 1;
+            fibSequence.push(a);
+            fibSequence.push(b);
+
+            for (let i = 2; i < numTerms; i++) {
+                let c = a + b;
+                fibSequence.push(c);
+                a = b;
+                b = c;
+            }
+
+            document.getElementById('output').innerHTML = 'Secuencia de Fibonacci: ' + fibSequence.join(', ');
+        }
+    </script>
+</body>
+</html>

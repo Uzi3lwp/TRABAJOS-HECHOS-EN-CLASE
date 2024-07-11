@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codigo Mochila</title>
+    <style>
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Codigo Mochila</h1>
+    <p>Introduce los valores y pesos de los artículos y la capacidad de la mochila:</p>
+    <label for="values">Valores (separados por comas):</label>
+    <input type="text" id="values" value="60,100,120">
+    <br>
+    <label for="weights">Pesos (separados por comas):</label>
+    <input type="text" id="weights" value="10,20,30">
+    <br>
+    <label for="capacity">Capacidad de la mochila:</label>
+    <input type="number" id="capacity" value="50">
+    <br>
+    <button onclick="solveKnapsack()">Resolver Mochila</button>
+    <p id="output">Valor máximo en la mochila:</p>
+
+    <script>
+        function solveKnapsack() {
+            const values = document.getElementById('values').value.split(',').map(Number);
+            const weights = document.getElementById('weights').value.split(',').map(Number);
+            const capacity = parseInt(document.getElementById('capacity').value);
+
+            const n = values.length;
+            const dp = Array(n + 1).fill().map
